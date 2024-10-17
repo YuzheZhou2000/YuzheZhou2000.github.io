@@ -6,12 +6,10 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
-# 婷婷真的好喜欢阿潘
 
 ```markdown
 Syntax highlighted code block
 
-# 好喜欢阿潘
 ## Header 2
 ### Header 3
 
