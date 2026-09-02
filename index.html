@@ -18,9 +18,9 @@
       --viewer: #20252a;
       --page-w: 210mm;
       --page-h: 297mm;
-      --page-pad-top: 12mm;
+      --page-pad-top: 14mm;
       --page-pad-x: 18mm;
-      --page-pad-bottom: 12mm;
+      --page-pad-bottom: 14mm;
       --content-w: calc(var(--page-w) - var(--page-pad-x) * 2);
       --content-h: calc(var(--page-h) - var(--page-pad-top) - var(--page-pad-bottom));
       --column-gap: 36px;
@@ -32,8 +32,8 @@
       color: var(--ink);
       background: var(--viewer);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 9.3pt;
-      line-height: 1.42;
+      font-size: 9.5pt;
+      line-height: 1.48;
       letter-spacing: 0;
     }
     body {
@@ -113,7 +113,7 @@
     }
 
     .identity {
-      padding-bottom: 3.2mm;
+      padding-bottom: 4mm;
       border-bottom: 1.6px solid var(--accent);
     }
     .language-start {
@@ -154,10 +154,10 @@
     }
     .contact a { font-weight: 600; }
     .summary {
-      margin-top: 2.8mm;
+      margin-top: 3.4mm;
       color: #30363d;
-      font-size: 9.8pt;
-      line-height: 1.58;
+      font-size: 10pt;
+      line-height: 1.67;
       text-align: justify;
     }
 
@@ -194,7 +194,7 @@
       display: flex;
       align-items: baseline;
       gap: 3mm;
-      margin: 2.2mm 0 1mm;
+      margin: 3mm 0 1.6mm;
       color: var(--accent-dark);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 12.5pt;
@@ -208,7 +208,7 @@
       background: var(--rule);
     }
     .entry {
-      margin-bottom: 1.6mm;
+      margin-bottom: 2.2mm;
       break-inside: avoid;
       page-break-inside: avoid;
     }
@@ -237,11 +237,11 @@
       font-weight: 650;
     }
     ul {
-      margin: .8mm 0 0;
+      margin: 1.2mm 0 0;
       padding-left: 4.6mm;
     }
     li {
-      margin: 0 0 .5mm;
+      margin: 0 0 .8mm;
       padding-left: .7mm;
       text-align: justify;
     }
@@ -249,7 +249,7 @@
     .skills {
       display: grid;
       grid-template-columns: 27mm 1fr;
-      gap: .9mm 3mm;
+      gap: 1.3mm 3mm;
       margin: 0;
     }
     .skills dt {
@@ -262,7 +262,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 1mm 5mm;
-      margin-bottom: 1mm;
+      margin-bottom: 1.4mm;
       break-inside: avoid;
     }
     .education strong { font-size: 10.2pt; }
@@ -401,9 +401,9 @@
         </div>
       </div>
       <p class="summary">
-        AI systems engineer specializing in production-grade agent infrastructure for AI coding. Deeply involved
-        in TRAE's 0-to-1 development and evolution as one of its key backend contributors, owning core systems
-        across multi-model access, agent runtime reliability, model delivery, observability, and serving efficiency.
+        AI systems engineer focused on production-grade agent infrastructure and LLM serving. A key backend
+        contributor throughout TRAE's 0-to-1 evolution, owning the AI Agent gateway, large-scale traffic
+        scheduling, multi-provider model integration, prompt-cache optimization, reliability, and model delivery.
       </p>
     </header>
 
@@ -415,9 +415,11 @@
           <div class="entry-title">ByteDance · TRAE · AI Systems Engineer</div>
           <time class="entry-date">Apr 2025 - Present</time>
         </div>
-        <div class="entry-meta">Agent Infrastructure · LLM Gateway · Model Platform</div>
+        <div class="entry-meta">AI Agent Gateway · Traffic Scheduling · Model Runtime &amp; Platform</div>
         <ul>
-          <li><strong>Product &amp; architecture:</strong> Drove core backend capabilities through TRAE's 0-to-1 journey, turning agent and model requirements into shared runtime, traffic governance, configuration, caching, observability, and safety foundations.</li>
+          <li><strong>End-to-end ownership:</strong> Own core backend architecture from agent requests and model routing through streaming responses, usage accounting, and production diagnostics, serving both interactive chat and long-running coding agents.</li>
+          <li><strong>Platformization:</strong> Turn model- and product-specific requirements into reusable gateway, runtime, configuration, caching, observability, and safety primitives shared across AI coding experiences.</li>
+          <li><strong>Production delivery:</strong> Coordinate client, agent, model, evaluation, and infrastructure teams on protocol design, capacity planning, staged validation, incident response, and production rollout.</li>
         </ul>
       </article>
     </section>
@@ -426,41 +428,67 @@
       <h2 class="section-title">Selected Engineering Contributions</h2>
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Multi-Model Traffic &amp; Reliability Control Plane</div>
+          <div class="entry-title">AI Agent Gateway &amp; Large-Scale Traffic Scheduling</div>
           <span class="entry-date">TRAE AI Infrastructure</span>
         </div>
         <ul>
-          <li>Designed routing and capacity decisions around provider health, queue pressure, context length, and capabilities; added session affinity, long-context paths, bounded retries, cross-model fallback, circuit breaking, and progressive recovery.</li>
+          <li>Architected a centralized execution gateway for chat and agent workloads, separating product orchestration from model and provider details while preserving context, tool state, reasoning streams, usage, and terminal events end to end.</li>
+          <li>Built hierarchical routing from logical models to execution models and provider resources, combining capability matching, context length, region, real-time health, queue pressure, and capacity into scheduling decisions.</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Unified Model Protocol &amp; Streaming Runtime</div>
-          <span class="entry-date">Provider-Neutral</span>
+          <div class="entry-title">Failure Isolation &amp; Graceful Recovery</div>
+          <span class="entry-date">Reliability Engineering</span>
         </div>
         <ul>
-          <li>Unified heterogeneous model APIs behind canonical request and streaming event contracts for SSE, tool calls, reasoning, cache, usage, and errors; configuration-driven capabilities and reasoning controls decouple products from provider protocols.</li>
+          <li>Normalized heterogeneous provider failures into retryable, degradable, and terminal categories; implemented timeout and retry budgets, exponential backoff, cross-model fallback, health-aware circuit breaking, and progressive recovery.</li>
+          <li>Combined admission control, priority queueing, backpressure, session affinity, and long-context isolation to absorb burst traffic, prevent retry amplification, and contain downstream failures.</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Prompt Caching &amp; Resource Orchestration</div>
-          <span class="entry-date">Serving Efficiency</span>
+          <div class="entry-title">Fine-Grained Prompt Cache Optimization</div>
+          <span class="entry-date">Latency &amp; Cost</span>
         </div>
         <ul>
-          <li>Unified explicit and implicit cache semantics, usage accounting, and diagnostics; improved reuse through session affinity, deterministic tool serialization, cache-aware scheduling, and capacity-aware resource coordination.</li>
+          <li>Unified explicit and implicit cache semantics and usage accounting across provider protocols; stabilized reusable prefixes through system-prompt discipline, append-only context construction, deterministic tool serialization, and cache-aware session routing.</li>
+          <li>Built diagnostics by model, provider, resource type, and deployment mode, correlating cache behavior with first-token latency, token usage, and request traces to identify structural misses and billing anomalies.</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Model Lifecycle &amp; Production Diagnostics</div>
+          <div class="entry-title">Unified Multi-Provider Model Runtime</div>
+          <span class="entry-date">Protocol &amp; Adapter Layer</span>
+        </div>
+        <ul>
+          <li>Defined canonical request, response, and streaming event contracts, with adapters that reconcile SSE lifecycles, tool calls, structured output, reasoning and thinking content, cache metadata, token usage, finish reasons, and errors.</li>
+          <li>Made capabilities and parameter translation configuration-driven, enabling rapid integration of domestic and international models without leaking provider-specific semantics into product and agent code.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Model Lifecycle &amp; Day-0 Delivery Platform</div>
           <span class="entry-date">Platform Engineering</span>
         </div>
         <ul>
-          <li>Built lifecycle workflows for model metadata, capabilities, routing, validation, rollout, rollback, and environment sync; added end-to-end tracing, automated case diagnosis, and sandbox boundaries for production governance.</li>
+          <li>Built lifecycle workflows for model and provider metadata, capability parameters, routing policies, connectivity checks, configuration diff, evaluation gates, staged rollout, rollback, and cross-environment synchronization.</li>
+          <li>Standardized model onboarding and release playbooks so product, evaluation, quality, infrastructure, and engineering teams can validate and launch new capabilities through one auditable path.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Observability, Diagnosis &amp; Agent Governance</div>
+          <span class="entry-date">Production Operations</span>
+        </div>
+        <ul>
+          <li>Established end-to-end metrics and traces across admission, queueing, routing, provider calls, first-token latency, streaming throughput, terminal status, usage, and cache behavior, with automated case-level diagnosis.</li>
+          <li>Implemented reasoning-effort propagation across clients, agent orchestration, gateway, and model mapping; contributed sandbox policies and capability boundaries to constrain execution risk and limit blast radius.</li>
         </ul>
       </article>
     </section>
@@ -471,9 +499,9 @@
         <dt>Focus</dt>
         <dd>AI Agent Infrastructure, AI Coding Systems, LLM Gateway, Distributed Systems</dd>
         <dt>Model Runtime</dt>
-        <dd>Multi-Provider APIs, SSE, Function Calling, Reasoning &amp; Thinking, Prompt Caching, Token Accounting</dd>
+        <dd>Multi-Provider APIs, SSE, Tool Calling, Structured Output, Reasoning &amp; Thinking, Prompt Caching, Token Accounting</dd>
         <dt>Engineering</dt>
-        <dd>Go, Protocol &amp; Adapter Design, Routing, Queueing, Retry, Fallback, Circuit Breaking, Model Lifecycle, Observability, Sandbox Controls</dd>
+        <dd>Go, Protocol &amp; Adapter Design, Traffic Scheduling, Queueing, Retry, Fallback, Circuit Breaking, Model Lifecycle, Observability, Sandbox Controls</dd>
       </dl>
     </section>
 
@@ -531,8 +559,9 @@
         </div>
       </div>
       <p class="summary">
-        专注于面向 AI Coding 的生产级 Agent 基础设施建设。从 0 到 1 深度参与 TRAE 产品演进，
-        是后端主要贡献者之一，负责多模型接入、Agent 运行时稳定性、模型交付、可观测与推理效率等核心系统。
+        专注于 AI Coding 场景的生产级 Agent 基础设施与 LLM 服务。从 0 到 1 深度参与 TRAE 产品演进，
+        是后端主要贡献者之一，负责 AI Agent 网关、大规模流量调度、多厂商模型接入、Prompt Cache
+        精细化调优、稳定性治理与模型交付。
       </p>
     </header>
 
@@ -543,9 +572,11 @@
           <div class="entry-title">字节跳动 · TRAE · AI 系统工程师</div>
           <time class="entry-date">2025.04 - 至今</time>
         </div>
-        <div class="entry-meta">Agent 基础设施 · LLM Gateway · 模型平台</div>
+        <div class="entry-meta">AI Agent 网关 · 流量调度 · 模型运行时与平台</div>
         <ul>
-          <li><strong>产品与架构：</strong>从产品早期到规模化交付，持续负责核心后端能力建设，将 Agent 与模型需求沉淀为统一运行时、流量治理、配置、缓存、可观测与安全等平台能力。</li>
+          <li><strong>端到端负责：</strong>覆盖 Agent 请求、模型路由、流式响应、用量计量与生产诊断等核心链路，同时支撑交互式 Chat 与长耗时 Coding Agent 任务。</li>
+          <li><strong>平台化建设：</strong>将模型和产品的差异化需求沉淀为网关、运行时、配置、缓存、可观测与安全等可复用基础能力。</li>
+          <li><strong>生产交付：</strong>协同客户端、Agent、模型、评测与基础设施团队，推进协议设计、容量规划、灰度验证、故障处置与生产发布。</li>
         </ul>
       </article>
     </section>
@@ -554,41 +585,67 @@
       <h2 class="section-title">代表性工程贡献</h2>
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">多模型流量与稳定性控制面</div>
+          <div class="entry-title">AI Agent 网关与大规模流量调度</div>
           <span class="entry-date">TRAE AI 基础设施</span>
         </div>
         <ul>
-          <li>围绕 Provider 健康度、队列水位、上下文长度和能力要求进行路由与容量决策，并建设 Session 亲和、Long Context 链路、受控重试、跨模型降级、熔断与渐进恢复。</li>
+          <li>设计面向 Chat 与 Agent 任务的统一执行网关，隔离产品编排与底层模型差异，并在链路中完整承载上下文、Tool 状态、推理流、用量和终态事件。</li>
+          <li>建设从逻辑模型到执行模型、Provider 资源的分层路由，综合模型能力、上下文长度、地域、实时健康度、队列水位与容量进行调度决策。</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">统一模型协议与流式运行时</div>
-          <span class="entry-date">Provider 无关</span>
+          <div class="entry-title">异常隔离与渐进式容灾</div>
+          <span class="entry-date">稳定性工程</span>
         </div>
         <ul>
-          <li>以统一请求和流式事件协议收敛异构模型 API 的 SSE、Tool Call、Reasoning、Cache、用量与错误差异，通过能力配置化和推理强度控制解耦业务与 Provider 协议。</li>
+          <li>将异构 Provider 异常归一为可重试、可降级和终止错误，建设超时与重试预算、指数退避、跨模型降级、健康度熔断和渐进恢复机制。</li>
+          <li>结合准入控制、优先级排队、背压、Session 亲和和 Long Context 隔离吸收突发流量，避免重试放大并控制下游故障影响范围。</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Prompt Cache 与资源调度</div>
-          <span class="entry-date">推理效率</span>
+          <div class="entry-title">Prompt Cache 精细化调优</div>
+          <span class="entry-date">延迟与成本</span>
         </div>
         <ul>
-          <li>统一显式/隐式缓存语义、用量口径和诊断体系，通过 Session 亲和、Tool 参数确定性序列化、Cache 感知调度与容量协同提升复用效率。</li>
+          <li>统一多厂商显式/隐式缓存语义与 Usage 口径，通过稳定 System Prompt、Context 追加式构造、Tool 参数确定性序列化和 Cache 感知 Session 路由提高前缀复用。</li>
+          <li>建立模型、Provider、资源类型和部署形态等多维诊断，将缓存表现与首 Token 延迟、Token 用量及 Trace 关联，定位结构性 Miss 与计量异常。</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">模型全生命周期与生产诊断</div>
+          <div class="entry-title">多厂商 / 多模型统一接入</div>
+          <span class="entry-date">协议与 Adapter 层</span>
+        </div>
+        <ul>
+          <li>设计统一请求、响应与流式事件协议，通过 Adapter 收敛 SSE 生命周期、Tool Call、结构化输出、Reasoning / Thinking、Cache、Token 用量、Finish Reason 和错误语义。</li>
+          <li>将模型能力与参数映射配置化，在不向上层产品和 Agent 代码泄漏厂商协议差异的前提下，支持国内外模型快速接入与能力迭代。</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">模型全生命周期与 Day-0 交付平台</div>
           <span class="entry-date">平台工程</span>
         </div>
         <ul>
-          <li>建设模型元数据、能力、路由、验证、发布、回滚与环境同步流程；完善端到端 Trace、Case 级自动诊断和 Agent 沙箱边界，支撑生产治理。</li>
+          <li>建设模型与 Provider 元数据、能力参数、路由策略、连通性测试、配置 Diff、评测门禁、灰度发布、回滚与跨环境同步等生命周期流程。</li>
+          <li>沉淀模型接入与发布 SOP，使产品、评测、质量、基础设施和研发团队通过统一、可审计的链路完成新模型与新能力上线。</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">可观测诊断与 Agent 运行时治理</div>
+          <span class="entry-date">生产运维</span>
+        </div>
+        <ul>
+          <li>建立覆盖准入、排队、路由、Provider 调用、首 Token 延迟、流式吞吐、终态、用量与 Cache 的端到端 Metrics 和 Trace，沉淀 Case 级自动诊断能力。</li>
+          <li>实现 Reasoning Effort 在客户端、Agent 编排、Gateway 和模型映射间的端到端透传，并参与设计 Agent 沙箱策略与能力边界，降低工具执行风险和异常影响范围。</li>
         </ul>
       </article>
     </section>
@@ -599,9 +656,9 @@
         <dt>核心方向</dt>
         <dd>AI Agent 基础设施、AI Coding 系统、LLM Gateway、分布式系统</dd>
         <dt>模型运行时</dt>
-        <dd>多 Provider API、SSE、Function Calling、Reasoning / Thinking、Prompt Cache、Token 计量</dd>
+        <dd>多 Provider API、SSE、Tool Calling、结构化输出、Reasoning / Thinking、Prompt Cache、Token 计量</dd>
         <dt>工程能力</dt>
-        <dd>Go、协议与 Adapter 设计、路由、排队、重试、降级、熔断、模型生命周期、可观测性、沙箱控制</dd>
+        <dd>Go、协议与 Adapter 设计、流量调度、排队、重试、降级、熔断、模型生命周期、可观测性、沙箱控制</dd>
       </dl>
     </section>
 
