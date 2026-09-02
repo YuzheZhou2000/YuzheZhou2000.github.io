@@ -18,9 +18,9 @@
       --viewer: #20252a;
       --page-w: 210mm;
       --page-h: 297mm;
-      --page-pad-top: 14mm;
+      --page-pad-top: 12mm;
       --page-pad-x: 18mm;
-      --page-pad-bottom: 14mm;
+      --page-pad-bottom: 12mm;
       --content-w: calc(var(--page-w) - var(--page-pad-x) * 2);
       --content-h: calc(var(--page-h) - var(--page-pad-top) - var(--page-pad-bottom));
       --column-gap: 36px;
@@ -32,8 +32,8 @@
       color: var(--ink);
       background: var(--viewer);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 9.5pt;
-      line-height: 1.48;
+      font-size: 9.3pt;
+      line-height: 1.42;
       letter-spacing: 0;
     }
     body {
@@ -113,7 +113,7 @@
     }
 
     .identity {
-      padding-bottom: 4mm;
+      padding-bottom: 3.2mm;
       border-bottom: 1.6px solid var(--accent);
     }
     .language-start {
@@ -154,10 +154,10 @@
     }
     .contact a { font-weight: 600; }
     .summary {
-      margin-top: 3.4mm;
+      margin-top: 2.8mm;
       color: #30363d;
-      font-size: 10pt;
-      line-height: 1.67;
+      font-size: 9.8pt;
+      line-height: 1.58;
       text-align: justify;
     }
 
@@ -194,7 +194,7 @@
       display: flex;
       align-items: baseline;
       gap: 3mm;
-      margin: 3mm 0 1.6mm;
+      margin: 2.2mm 0 1mm;
       color: var(--accent-dark);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 12.5pt;
@@ -208,7 +208,7 @@
       background: var(--rule);
     }
     .entry {
-      margin-bottom: 2.2mm;
+      margin-bottom: 1.6mm;
       break-inside: avoid;
       page-break-inside: avoid;
     }
@@ -237,11 +237,11 @@
       font-weight: 650;
     }
     ul {
-      margin: 1.2mm 0 0;
+      margin: .8mm 0 0;
       padding-left: 4.6mm;
     }
     li {
-      margin: 0 0 .8mm;
+      margin: 0 0 .5mm;
       padding-left: .7mm;
       text-align: justify;
     }
@@ -249,7 +249,7 @@
     .skills {
       display: grid;
       grid-template-columns: 27mm 1fr;
-      gap: 1.3mm 3mm;
+      gap: .9mm 3mm;
       margin: 0;
     }
     .skills dt {
@@ -262,7 +262,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 1mm 5mm;
-      margin-bottom: 1.4mm;
+      margin-bottom: 1mm;
       break-inside: avoid;
     }
     .education strong { font-size: 10.2pt; }
@@ -401,9 +401,9 @@
         </div>
       </div>
       <p class="summary">
-        AI systems engineer building production-grade agent infrastructure for AI coding. Deeply involved in TRAE's
-        0-to-1 development and evolution as one of its key backend contributors, with work spanning LLM gateways,
-        model platforms, reliability, and efficient model serving.
+        AI systems engineer specializing in production-grade agent infrastructure for AI coding. Deeply involved
+        in TRAE's 0-to-1 development and evolution as one of its key backend contributors, owning core systems
+        across multi-model access, agent runtime reliability, model delivery, observability, and serving efficiency.
       </p>
     </header>
 
@@ -417,10 +417,7 @@
         </div>
         <div class="entry-meta">Agent Infrastructure · LLM Gateway · Model Platform</div>
         <ul>
-          <li><strong>Agent reliability:</strong> Built routing, queueing, retry, cross-model fallback, and health-aware circuit breaking for long-running agent workloads.</li>
-          <li><strong>Unified model layer:</strong> Designed a provider-neutral protocol and streaming adapters for tool use, reasoning, thinking, caching, and error semantics.</li>
-          <li><strong>Model serving:</strong> Developed prompt caching, resource orchestration, and lifecycle management for models, providers, capabilities, routing, validation, and releases.</li>
-          <li><strong>Observability:</strong> Established metrics, tracing, and automated diagnosis across streaming performance, reliability, usage, and cost.</li>
+          <li><strong>Product &amp; architecture:</strong> Drove core backend capabilities through TRAE's 0-to-1 journey, turning agent and model requirements into shared runtime, traffic governance, configuration, caching, observability, and safety foundations.</li>
         </ul>
       </article>
     </section>
@@ -429,24 +426,43 @@
       <h2 class="section-title">Selected Engineering Contributions</h2>
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Agent-Ready Multi-Model Gateway</div>
+          <div class="entry-title">Multi-Model Traffic &amp; Reliability Control Plane</div>
           <span class="entry-date">TRAE AI Infrastructure</span>
         </div>
         <ul>
-          <li>Designed a closed-loop control plane for provider-aware scheduling, stable traffic allocation, long-context routing, and graceful recovery through retry, fallback, and circuit breaking.</li>
+          <li>Designed routing and capacity decisions around provider health, queue pressure, context length, and capabilities; added session affinity, long-context paths, bounded retries, cross-model fallback, circuit breaking, and progressive recovery.</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Prompt Caching &amp; Model Serving Efficiency</div>
-          <span class="entry-date">Multi-Provider</span>
+          <div class="entry-title">Unified Model Protocol &amp; Streaming Runtime</div>
+          <span class="entry-date">Provider-Neutral</span>
         </div>
         <ul>
-          <li>Unified explicit and implicit prompt caching, usage accounting, and diagnostics; improved reuse through session affinity, deterministic tool serialization, and cache-aware scheduling.</li>
+          <li>Unified heterogeneous model APIs behind canonical request and streaming event contracts for SSE, tool calls, reasoning, cache, usage, and errors; configuration-driven capabilities and reasoning controls decouple products from provider protocols.</li>
         </ul>
       </article>
 
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Prompt Caching &amp; Resource Orchestration</div>
+          <span class="entry-date">Serving Efficiency</span>
+        </div>
+        <ul>
+          <li>Unified explicit and implicit cache semantics, usage accounting, and diagnostics; improved reuse through session affinity, deterministic tool serialization, cache-aware scheduling, and capacity-aware resource coordination.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Model Lifecycle &amp; Production Diagnostics</div>
+          <span class="entry-date">Platform Engineering</span>
+        </div>
+        <ul>
+          <li>Built lifecycle workflows for model metadata, capabilities, routing, validation, rollout, rollback, and environment sync; added end-to-end tracing, automated case diagnosis, and sandbox boundaries for production governance.</li>
+        </ul>
+      </article>
     </section>
 
     <section class="flow-block">
@@ -454,10 +470,10 @@
       <dl class="skills">
         <dt>Focus</dt>
         <dd>AI Agent Infrastructure, AI Coding Systems, LLM Gateway, Distributed Systems</dd>
-        <dt>Model Systems</dt>
-        <dd>OpenAI Responses, Anthropic, Gemini, MaaS, SSE, Function Calling, Reasoning, Prompt Caching</dd>
+        <dt>Model Runtime</dt>
+        <dd>Multi-Provider APIs, SSE, Function Calling, Reasoning &amp; Thinking, Prompt Caching, Token Accounting</dd>
         <dt>Engineering</dt>
-        <dd>Go, Protocol &amp; Adapter Design, Load Balancing, Queueing, Retry, Fallback, Circuit Breaking, Metrics, Tracing</dd>
+        <dd>Go, Protocol &amp; Adapter Design, Routing, Queueing, Retry, Fallback, Circuit Breaking, Model Lifecycle, Observability, Sandbox Controls</dd>
       </dl>
     </section>
 
@@ -516,7 +532,7 @@
       </div>
       <p class="summary">
         专注于面向 AI Coding 的生产级 Agent 基础设施建设。从 0 到 1 深度参与 TRAE 产品演进，
-        是后端主要贡献者之一，工作覆盖 LLM Gateway、模型平台、Agent 稳定性与高效模型服务。
+        是后端主要贡献者之一，负责多模型接入、Agent 运行时稳定性、模型交付、可观测与推理效率等核心系统。
       </p>
     </header>
 
@@ -529,10 +545,7 @@
         </div>
         <div class="entry-meta">Agent 基础设施 · LLM Gateway · 模型平台</div>
         <ul>
-          <li><strong>Agent 稳定性：</strong>建设面向长耗时 Agent 任务的路由、排队、重试、跨模型降级与健康度熔断能力。</li>
-          <li><strong>统一模型层：</strong>设计 Provider 无关协议与流式适配架构，统一 Tool、Reasoning、Thinking、Cache 与错误语义。</li>
-          <li><strong>模型服务：</strong>建设 Prompt Cache、资源调度及模型、Provider、能力、路由、验证与发布的全生命周期管理。</li>
-          <li><strong>可观测性：</strong>完善流式性能、稳定性、用量和成本的指标、Trace 与自动诊断能力。</li>
+          <li><strong>产品与架构：</strong>从产品早期到规模化交付，持续负责核心后端能力建设，将 Agent 与模型需求沉淀为统一运行时、流量治理、配置、缓存、可观测与安全等平台能力。</li>
         </ul>
       </article>
     </section>
@@ -541,21 +554,41 @@
       <h2 class="section-title">代表性工程贡献</h2>
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">面向 Agent 的多模型网关</div>
+          <div class="entry-title">多模型流量与稳定性控制面</div>
           <span class="entry-date">TRAE AI 基础设施</span>
         </div>
         <ul>
-          <li>设计闭环控制架构，支持 Provider 感知调度、用户级稳定分流、长上下文路由，以及基于重试、降级和熔断的渐进恢复。</li>
+          <li>围绕 Provider 健康度、队列水位、上下文长度和能力要求进行路由与容量决策，并建设 Session 亲和、Long Context 链路、受控重试、跨模型降级、熔断与渐进恢复。</li>
         </ul>
       </article>
 
       <article class="entry">
         <div class="entry-head">
-          <div class="entry-title">Prompt Cache 与模型服务效率</div>
-          <span class="entry-date">多 Provider</span>
+          <div class="entry-title">统一模型协议与流式运行时</div>
+          <span class="entry-date">Provider 无关</span>
         </div>
         <ul>
-          <li>统一显式/隐式缓存、用量口径和诊断体系，通过 Session 亲和、Tool 确定性序列化与 Cache 感知调度提升复用效率。</li>
+          <li>以统一请求和流式事件协议收敛异构模型 API 的 SSE、Tool Call、Reasoning、Cache、用量与错误差异，通过能力配置化和推理强度控制解耦业务与 Provider 协议。</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">Prompt Cache 与资源调度</div>
+          <span class="entry-date">推理效率</span>
+        </div>
+        <ul>
+          <li>统一显式/隐式缓存语义、用量口径和诊断体系，通过 Session 亲和、Tool 参数确定性序列化、Cache 感知调度与容量协同提升复用效率。</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div class="entry-title">模型全生命周期与生产诊断</div>
+          <span class="entry-date">平台工程</span>
+        </div>
+        <ul>
+          <li>建设模型元数据、能力、路由、验证、发布、回滚与环境同步流程；完善端到端 Trace、Case 级自动诊断和 Agent 沙箱边界，支撑生产治理。</li>
         </ul>
       </article>
     </section>
@@ -565,10 +598,10 @@
       <dl class="skills">
         <dt>核心方向</dt>
         <dd>AI Agent 基础设施、AI Coding 系统、LLM Gateway、分布式系统</dd>
-        <dt>模型系统</dt>
-        <dd>OpenAI Responses、Anthropic、Gemini、MaaS、SSE、Function Calling、Reasoning、Prompt Cache</dd>
+        <dt>模型运行时</dt>
+        <dd>多 Provider API、SSE、Function Calling、Reasoning / Thinking、Prompt Cache、Token 计量</dd>
         <dt>工程能力</dt>
-        <dd>Go、协议与 Adapter 设计、负载均衡、排队、重试、降级、熔断、Metrics、Trace</dd>
+        <dd>Go、协议与 Adapter 设计、路由、排队、重试、降级、熔断、模型生命周期、可观测性、沙箱控制</dd>
       </dl>
     </section>
 
